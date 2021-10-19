@@ -80,7 +80,12 @@ class SelectionHelper {
 	static func openShell(_ data: InterfaceData?) {
 
 		// Lets us know the application exists
-		guard let paths = data?.urls, let selection = data?.selection, let app = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.googlecode.iterm2") else {
+		guard
+			let paths = data?.urls,
+			let selection = data?.selection,
+			let preferredShell = UserDefaults.standard.string(forKey: .keyPreferredShell),
+		let app = NSWorkspace.shared.urlForApplication(withBundleIdentifier: preferredShell)
+		else {
 			return
 		}
 

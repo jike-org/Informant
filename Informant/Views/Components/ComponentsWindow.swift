@@ -112,3 +112,79 @@ struct ComponentsSettingsToggleSection<ContentFirst: View, ContentSecond: View, 
 		}
 	}
 }
+
+/// Picks out the bundle id for the preferred shell
+struct ComponentsSettingsPickPreferredShell: View {
+
+	let shell: String
+
+	let icon: NSImage?
+	let name: String?
+
+	let size: CGFloat = 16
+
+	internal init(shellRef: String) {
+
+		self.shell = shellRef
+
+		// Get icon and name
+		let keys: Set<URLResourceKey> = [
+			.effectiveIconKey,
+			.localizedNameKey
+		]
+
+		// Grabs the url for the shell's bundle id
+		guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: shell) else {
+			self.icon = nil
+			self.name = nil
+			return
+		}
+
+		// Retrieve resources
+		let resources = SelectionHelper.getURLResources(url, keys)
+
+		// Assign resources
+		guard let iconUnwrapped = resources?.effectiveIcon as? NSImage else {
+			self.icon = nil
+			self.name = nil
+			return
+		}
+		guard let nameUnwrapped = resources?.localizedName else {
+			self.icon = nil
+			self.name = nil
+			return
+		}
+
+		self.icon = iconUnwrapped
+		self.name = nameUnwrapped
+	}
+
+	var body: some View {
+		HStack(alignment: .center) {
+			Text(ContentManager.SettingsLabels.preferredShell)
+
+			// Pick shell button
+			Button {
+				SecurityBookmarkHelper().pickShellApp()
+			} label: {
+
+				// Displays the shell as a label
+				HStack(alignment: .center, spacing: 5) {
+
+					if let icon = icon {
+						Image(nsImage: icon)
+							.resizable()
+							.frame(width: size, height: size, alignment: .center)
+							.padding([.top], 1)
+					}
+
+					if let name = name {
+						Text(name)
+					}
+				}
+				.offset(x: 0, y: 0.5)
+				.padding([.horizontal], 2)
+			}
+		}
+	}
+}

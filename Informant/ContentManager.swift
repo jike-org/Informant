@@ -24,6 +24,8 @@ class ContentManager {
 	// MARK: - Titles
 	public enum Titles {
 
+		static let openPanelChoose = NSLocalizedString("Choose", comment: "")
+
 		static let panelNoItemsSelected = NSLocalizedString("No selection", comment: "String displayed when no items are selected.")
 
 		static let panelErrorTitle = NSLocalizedString("No access", comment: "The title displayed when the selection errors out")
@@ -165,6 +167,8 @@ class ContentManager {
 		static let menubarShowShutterspeed = NSLocalizedString("Shutter Speed", comment: "")
 
 		// System
+
+		static let preferredShell = NSLocalizedString("Preferred Shell:", comment: "The shell application the user chooses to use")
 
 		static let menubarShowPath = NSLocalizedString("Path", comment: "")
 

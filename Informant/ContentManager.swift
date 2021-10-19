@@ -323,6 +323,8 @@ class ContentManager {
 
 		static let panelPreferencesButton = "gear"
 
+		static let panelTerminalButton = "chevron"
+
 		static let panelPathIcon = "externaldrive"
 
 		static let panelCopyIcon = "square.on.square"

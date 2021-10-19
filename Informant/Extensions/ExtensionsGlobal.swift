@@ -86,12 +86,14 @@ extension URL {
 
 // MARK: - NS Extensions
 
-/// Allowed NSPanel to be focusable
-extension NSPanel {
-	override open var canBecomeKey: Bool {
-		return true
-	}
-}
+/// Allowed NSPanel to be focusable. < I have no idea why I added this in the first place.
+/*
+ extension NSPanel {
+ 	override open var canBecomeKey: Bool {
+ 		return true
+ 	}
+ }
+  */
 
 // Shortens NSPanel initialization
 extension NSPanel {
@@ -235,6 +237,11 @@ public extension FileManager {
 
 		#warning("This could get changed in the future: 'Volumes'")
 		return "/Volumes/\(volumeName)\(home)"
+	}
+
+	/// Grabs the /username/ directory
+	var getHomeDirectory: String? {
+		return FileManager.default.homeDirectoryForCurrentUser.path
 	}
 
 	/// Grabs the /Volumes/<Root Drive>/ components

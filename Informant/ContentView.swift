@@ -148,6 +148,13 @@ struct ContentView: View {
 						// Ensures buttons align to the right
 						Spacer()
 
+						// Shell button
+						if let data = interfaceData.data {
+							ComponentsPanelIconButton(ContentManager.Icons.panelTerminalButton, width: 6, height: 11.5, weight: .medium) {
+								SelectionHelper.openShell(data)
+							}
+						}
+
 						// More button
 						ComponentsPanelIconButton(ContentManager.Icons.panelPreferencesButton, size: 16) {
 							_ = appDelegate.interfaceMenuController!.openMenuAtPanel()

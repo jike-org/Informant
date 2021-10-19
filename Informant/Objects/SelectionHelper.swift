@@ -5,6 +5,7 @@
 //  Created by Ty Irvine on 2021-06-04.
 //
 
+import AppKit
 import AVFoundation
 import Foundation
 
@@ -73,6 +74,31 @@ class SelectionHelper {
 		}
 
 		return nil
+	}
+
+	/// Creates a shell with the customer selected application
+	static func openShell(_ data: InterfaceData?) {
+
+		// Lets us know the application exists
+		guard
+			let paths = data?.urls,
+			let selection = data?.selection,
+			let preferredShell = UserDefaults.standard.string(forKey: .keyPreferredShell),
+		let app = NSWorkspace.shared.urlForApplication(withBundleIdentifier: preferredShell)
+		else {
+			return
+		}
+
+		// Mutable copy of the url
+		var url = URL(fileURLWithPath: paths[0])
+
+		// Determine if the path is a directory or not. It needs to be directory to open
+		if !url.hasDirectoryPath || selection.itemResources?.isApplication == true {
+			url.deleteLastPathComponent()
+		}
+
+		// Then open the app
+		NSWorkspace.shared.open([url], withApplicationAt: app, configuration: NSWorkspace.OpenConfiguration())
 	}
 
 	// MARK: - Metadata Methods
@@ -288,15 +314,25 @@ class SelectionHelper {
 
 	/// Modifies the root directory of the path to a ~
 	static func formatPathTildeAbbreviate(_ path: String?) -> String? {
-		guard let homeDirectory = FileManager.default.getRealHomeDirectory else {
+
+		guard let homeDirectoryVolume = FileManager.default.getRealHomeDirectory else {
 			return nil
 		}
 
-		guard let shortenedPath = path?.replacingOccurrences(of: homeDirectory, with: "~") else {
-			return nil
+		// We need to figure out if the path includes the /Volumes/ directory
+		if path?.contains(homeDirectoryVolume) == true {
+			return path?.replacingOccurrences(of: homeDirectoryVolume, with: "~")
 		}
 
-		return shortenedPath
+		// Otherwise just pull the home directory
+		else {
+
+			guard let homeDirectory = FileManager.default.getHomeDirectory else {
+				return nil
+			}
+
+			return path?.replacingOccurrences(of: homeDirectory, with: "~")
+		}
 	}
 
 	/// Shortens the path by completely removing the root (/Volumes/Macintosh HD/) of the path

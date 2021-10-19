@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "Проверить информатора";
 
+/* No comment provided by engineer. */
+"Choose" = "Выбирать";
+
 /* Used on auth instructions */
 "Click Privacy" = "Нажмите Конфиденциальность";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "Предпочтения...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "Предпочтительная оболочка:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "Политика конфиденциальности";

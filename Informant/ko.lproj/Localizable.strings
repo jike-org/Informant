@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "제보자 확인";
 
+/* No comment provided by engineer. */
+"Choose" = "고르다";
+
 /* Used on auth instructions */
 "Click Privacy" = "개인 정보 보호를 클릭합니다.";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "선호...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "기본 셸:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "개인정보 처리방침";

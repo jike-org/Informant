@@ -56,6 +56,7 @@ extension AppDelegate {
 			.keySystemStartupBool: false,
 			.keyMenubarUtilityBool: true,
 			.keyPanelSkipDirectories: false,
+			.keyPreferredShell: "com.apple.Terminal",
 			
 			// Misc.
 			.keyShowWelcomeWindow: true,
@@ -125,6 +126,8 @@ public extension String {
 	static let keyMenubarShowShutterSpeed = "menubarShowShutterSpeed"
 	
 	// MARK: - System Settings
+	
+	static let keyPreferredShell = "preferredShell"
 	
 	static let keyMenubarIcon = "menubarIcon"
 	

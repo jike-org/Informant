@@ -362,6 +362,9 @@ struct SettingsRightSideView: View {
 
 			VStack(alignment: .leading, spacing: 12) {
 
+				// Pick out your shell
+				ComponentsSettingsPickPreferredShell(shellRef: interfaceState.settingsPreferredShell)
+
 				// Enable menubar-utility
 				TogglePadded(ContentManager.SettingsLabels.menubarUtilityShow, isOn: $interfaceState.settingsMenubarUtilityBool)
 

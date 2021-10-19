@@ -351,4 +351,10 @@ class InterfaceState: ObservableObject {
 			MenubarUtilityHelper.update()
 		}
 	}
+
+	@Published var settingsPreferredShell: String = UserDefaults.standard.string(forKey: .keyPreferredShell) ?? "com.apple.Terminal" {
+		willSet(value) {
+			UserDefaults.standard.setValue(value, forKey: .keyPreferredShell)
+		}
+	}
 }

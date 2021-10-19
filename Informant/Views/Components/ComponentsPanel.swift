@@ -463,11 +463,12 @@ struct ComponentsPanelIconButton: View {
 	var size: CGFloat
 	var width: CGFloat
 	var height: CGFloat
+	var weight: Font.Weight
 
 	/// Logic for button to execute
 	var action: () -> Void
 
-	init(_ iconName: String, size: CGFloat = 16, width: CGFloat? = nil, height: CGFloat? = nil, action: @escaping () -> Void) {
+	init(_ iconName: String, size: CGFloat = 16, width: CGFloat? = nil, height: CGFloat? = nil, weight: Font.Weight = .regular, action: @escaping () -> Void) {
 		self.iconName = iconName
 		self.size = size
 		self.action = action
@@ -475,6 +476,7 @@ struct ComponentsPanelIconButton: View {
 		// Set width and height, otherwise default to provided inputs
 		self.width = size
 		self.height = size
+		self.weight = weight
 
 		if width != nil {
 			self.width = width!
@@ -494,6 +496,7 @@ struct ComponentsPanelIconButton: View {
 		} label: {
 			Image(iconName)
 				.resizable()
+				.font(.largeTitle.weight(weight))
 				.frame(width: width, height: height)
 				.padding(5)
 		}

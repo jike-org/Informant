@@ -20,12 +20,13 @@ class SecurityBookmarkHelper {
 
 	init() {
 		openPanel.allowsMultipleSelection = false
-		openPanel.canChooseDirectories = true
-		openPanel.canChooseFiles = false
+		openPanel.canChooseDirectories = false
+		openPanel.canChooseFiles = true
 		openPanel.showsHiddenFiles = false
+		openPanel.allowedContentTypes = [.application]
 
-		openPanel.prompt = ContentManager.Titles.openPanelGrantAccess
-		openPanel.directoryURL = URL(fileURLWithPath: "/")
+		openPanel.prompt = ContentManager.Titles.openPanelChoose
+		openPanel.directoryURL = URL(fileURLWithPath: "/Applications/")
 	}
 
 	// DEPRECATED
@@ -48,6 +49,27 @@ class SecurityBookmarkHelper {
 				self.closePanel()
 			}
 		}
+	}
+
+	/// Picks out the shell app
+	func pickShellApp() {
+
+		guard let windowRef = AppDelegate.current().settingsWindow else { return }
+
+		openPanel.beginSheetModal(for: windowRef) { response in
+			if response == .OK, let url = self.openPanel.url {
+				self.storePickedApp(url)
+				self.closePanel()
+			} else {
+				self.closePanel()
+			}
+		}
+	}
+
+	/// Stores the picked shell
+	func storePickedApp(_ url: URL) {
+		guard let bundle = Bundle(url: url)?.bundleIdentifier else { return }
+		AppDelegate.current().interfaceState.settingsPreferredShell = bundle
 	}
 
 	/// Simple closer for the panel

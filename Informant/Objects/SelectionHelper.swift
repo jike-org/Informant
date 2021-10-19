@@ -5,6 +5,7 @@
 //  Created by Ty Irvine on 2021-06-04.
 //
 
+import AppKit
 import AVFoundation
 import Foundation
 
@@ -73,6 +74,26 @@ class SelectionHelper {
 		}
 
 		return nil
+	}
+
+	/// Creates a shell with the customer selected application
+	static func openShell(_ data: InterfaceData?) {
+
+		// Lets us know the application exists
+		guard let paths = data?.urls, let selection = data?.selection, let app = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.googlecode.iterm2") else {
+			return
+		}
+
+		// Mutable copy of the url
+		var url = URL(fileURLWithPath: paths[0])
+
+		// Determine if the path is a directory or not. It needs to be directory to open
+		if !url.hasDirectoryPath || selection.itemResources?.isApplication == true {
+			url.deleteLastPathComponent()
+		}
+
+		// Then open the app
+		NSWorkspace.shared.open([url], withApplicationAt: app, configuration: NSWorkspace.OpenConfiguration())
 	}
 
 	// MARK: - Metadata Methods

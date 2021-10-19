@@ -149,9 +149,9 @@ struct ContentView: View {
 						Spacer()
 
 						// Shell button
-						if interfaceData.data?.selection != nil {
+						if let data = interfaceData.data {
 							ComponentsPanelIconButton(ContentManager.Icons.panelTerminalButton, width: 6, height: 11.5, weight: .medium) {
-								print("Terminal")
+								SelectionHelper.openShell(data)
 							}
 						}
 

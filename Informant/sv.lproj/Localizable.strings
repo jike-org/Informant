@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "Kontrollera uppgiftslämnaren";
 
+/* No comment provided by engineer. */
+"Choose" = "Välja";
+
 /* Used on auth instructions */
 "Click Privacy" = "Klicka på Sekretess";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "Inställningar...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "Föredraget skal:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "Integritetspolicy";

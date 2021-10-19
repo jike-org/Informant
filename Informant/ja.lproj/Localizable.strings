@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "Informantをチェック";
 
+/* No comment provided by engineer. */
+"Choose" = "選ぶ";
+
 /* Used on auth instructions */
 "Click Privacy" = "[プライバシー] をクリック";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "設定...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "優先シェル:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "プライバシーポリシー";

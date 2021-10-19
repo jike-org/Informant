@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "Muhbiri Kontrol Et";
 
+/* No comment provided by engineer. */
+"Choose" = "Seçmek";
+
 /* Used on auth instructions */
 "Click Privacy" = "Gizlilik'e tıklayın";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "Tercihler...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "Tercih Edilen Kabuk:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "Gizlilik Politikası";

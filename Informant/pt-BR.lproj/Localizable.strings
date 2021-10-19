@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "Verificar informante";
 
+/* No comment provided by engineer. */
+"Choose" = "Escolher";
+
 /* Used on auth instructions */
 "Click Privacy" = "Clique em Privacidade";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "Preferências...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "Shell preferida:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "Política de privacidade";

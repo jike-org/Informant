@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "मुखबिर की जांच करें";
 
+/* No comment provided by engineer. */
+"Choose" = "चुनना";
+
 /* Used on auth instructions */
 "Click Privacy" = "क्लिक करें प्राइवेसी";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "प्राथमिकताएँ।।।";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "पसंदीदा शेल:";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "गोपनीयता नीति";

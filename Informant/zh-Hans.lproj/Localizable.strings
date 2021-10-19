@@ -40,6 +40,9 @@
 /* Used on auth instructions */
 "Check Informant" = "勾选 Informant";
 
+/* No comment provided by engineer. */
+"Choose" = "选择";
+
 /* Used on auth instructions */
 "Click Privacy" = "单击\"隐私\"";
 
@@ -219,6 +222,9 @@
 
 /* Preferences menu item in panel menu */
 "Preferences..." = "偏好设置...";
+
+/* The shell application the user chooses to use */
+"Preferred Shell:" = "首选壳牌：";
 
 /* No comment provided by engineer. */
 "Privacy Policy" = "隐私策略";
